@@ -17,3 +17,10 @@ print(spell_checker.is_correct("martialartz"))
 print(spell_checker.is_correct("amoxicillin-clavulanic"))
 # (True, None)
 ```
+### Different Language Zone
+The GoogleSpellChecker uses the default language zone "en-EN", but you can change it by passing the parameter 
+zone to GoogleSpellChecker() as follow:
+```
+# For example, we use zone="id" for Indonesian
+spell_checker = GoogleSpellChecker(zone="id")
+```

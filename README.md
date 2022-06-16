@@ -23,4 +23,6 @@ zone to GoogleSpellChecker() as follow:
 ```
 # For example, we use zone="id" for Indonesian
 spell_checker = GoogleSpellChecker(zone="id")
+print(spell_checker.is_correct("sayalaparsekali, say ingn makn dirumha"))
+# (False, 'saya lapar sekali, saya ingin makan di rumah')
 ```

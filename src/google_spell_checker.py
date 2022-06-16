@@ -11,21 +11,21 @@ class GoogleSpellChecker:
         'Accept-Encoding': 'gzip, deflate',
     }
 
-    def __init__(self, zone='en-EN'):
-        self.zone = zone
+    def __init__(self, lang='en-EN'):
+        self.lang = lang
         self.url = "https://www.google.com/complete/search?client=gws-wiz&xssi=t"
         self.response = self.result = None
 
-    def check_spelling(self, word, zone=None):
-        zone = zone if zone is not None else self.zone
-        self.response = requests.get(f"{self.url}&hl={zone}&q={word}", headers=self.headers)
+    def check_spelling(self, word, lang=None):
+        lang = lang if lang is not None else self.lang
+        self.response = requests.get(f"{self.url}&hl={lang}&q={word}", headers=self.headers)
         if self.response.status_code == 200:
             self.result = json.loads(f"{self.response.text[5:]}")
         return self.result
 
-    def is_correct(self, word, zone=None):
-        zone = zone if zone is not None else self.zone
-        suggestions = self.check_spelling(word, zone=zone)
+    def is_correct(self, word, lang=None):
+        lang = lang if lang is not None else self.lang
+        suggestions = self.check_spelling(word, lang=lang)
         if suggestions is not None and len(suggestions[0]) > 0 and len(suggestions[0][0]) > 0:
             if re.sub(r"<b>.+</b>", "", suggestions[0][0][0]).lower() == word.lower():
                 return True, None

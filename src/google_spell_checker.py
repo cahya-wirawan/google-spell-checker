@@ -4,6 +4,9 @@ import re
 
 
 class GoogleSpellChecker:
+    """
+    GoogleSpellChecker is a simple multilingual check spell checker leveraging the Google Text Completion.
+    """
     headers = {
         'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1)',
         'Accept': '*/*',
@@ -12,6 +15,9 @@ class GoogleSpellChecker:
     }
 
     def __init__(self, lang='en-EN'):
+        """
+        :param lang:
+        """
         self.lang = lang
         self.url = "https://www.google.com/complete/search?client=gws-wiz&xssi=t"
         self.response = self.result = None
@@ -52,9 +58,8 @@ class GoogleSpellChecker:
 # Following is an example how to use the Google Spell Checker.
 def main():
     spell_checker = GoogleSpellChecker()
-    result = spell_checker.check_spelling("az-zuhaili")
-    print(result)
-    print(spell_checker.is_correct("az-zuhaili"))
+    print(spell_checker.check_spelling("developmnet"))
+    print(spell_checker.is_correct("martialartz"))
 
 
 if __name__ == "__main__":

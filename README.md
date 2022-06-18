@@ -1,6 +1,6 @@
 # Google Spell Checker
 
-It is a simple Spell Checker using Google Search Engine.
+It is a simple multilingual Spell Checker using Google Text Completion.
 
 ## Usage
 

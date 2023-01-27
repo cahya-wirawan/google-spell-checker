@@ -29,7 +29,7 @@ class GoogleSpellChecker:
             self.result = json.loads(f"{self.response.text[5:]}")
         return self.result
 
-    def is_correct(self, word, lang=None):
+    def check(self, word, lang=None):
         lang = lang if lang is not None else self.lang
         suggestions = self.check_spelling(word, lang=lang)
         if suggestions is not None and len(suggestions[0]) > 0 and len(suggestions[0][0]) > 0:
@@ -46,6 +46,15 @@ class GoogleSpellChecker:
                         return False, None
         else:
             return False, None
+
+    def is_correct(self, word, lang=None):
+        """
+        Returns True if the word is correct, False otherwise
+        :param word:
+        :param lang:
+        :return:
+        """
+        return self.check(word, lang=lang)[0]
 
     def get_suggestions(self):
         """

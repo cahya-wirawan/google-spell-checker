@@ -2,6 +2,11 @@
 
 It is a simple multilingual Spell Checker using Google Text Completion.
 
+## Installation
+
+```
+pip install google-spell-checker
+```
 ## Usage
 
 GoogleSpellChecker.is_correct(word) returns a tuple, the first variable is the correctness of the text,
@@ -10,11 +15,11 @@ the second variable is the most possible correct word (or None if it is a correc
 from google_spell_checker import GoogleSpellChecker
 
 spell_checker = GoogleSpellChecker()
-print(spell_checker.is_correct("developmnet"))
+print(spell_checker.check("developmnet"))
 # (False, 'development')
-print(spell_checker.is_correct("martialartz"))
+print(spell_checker.check("martialartz"))
 # (False, 'martial arts')
-print(spell_checker.is_correct("amoxicillin-clavulanic"))
+print(spell_checker.check("amoxicillin-clavulanic"))
 # (True, None)
 ```
 ### Different Language Code
@@ -23,6 +28,6 @@ lang to GoogleSpellChecker() as follow:
 ```
 # For example, we use lang="id" for Indonesian
 spell_checker = GoogleSpellChecker(lang="id")
-print(spell_checker.is_correct("sayalaparsekali, say ingn makn dirumha"))
+print(spell_checker.check("sayalaparsekali, say ingn makn dirumha"))
 # (False, 'saya lapar sekali, saya ingin makan di rumah')
 ```

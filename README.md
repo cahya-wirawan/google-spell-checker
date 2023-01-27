@@ -9,7 +9,7 @@ pip install google-spell-checker
 ```
 ## Usage
 
-GoogleSpellChecker.is_correct(word) returns a tuple, the first variable is the correctness of the text,
+GoogleSpellChecker.check(word) returns a tuple, the first variable is the correctness of the text,
 the second variable is the most possible correct word (or None if it is a correct word).
 ```
 from google_spell_checker import GoogleSpellChecker
